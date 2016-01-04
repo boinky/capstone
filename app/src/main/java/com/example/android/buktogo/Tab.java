@@ -13,7 +13,7 @@ import com.example.android.buktogo.Tabs.TabFive;
 import com.example.android.buktogo.Tabs.TabFour;
 import com.example.android.buktogo.Tabs.TabOne;
 import com.example.android.buktogo.Tabs.TabThree;
-import com.example.android.buktogo.Tabs.TabTwo;
+import com.example.android.buktogo.Tabs.Landmarks;
 
 /**
  * Created by jan on 12/24/15.
@@ -63,7 +63,7 @@ public class Tab extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new TabOne(), "About");
-        adapter.addFragment(new TabTwo(), "Landmarks");
+        adapter.addFragment(new Landmarks(), "Landmarks");
         adapter.addFragment(new TabThree(), "Accomodation");
         adapter.addFragment(new TabFour(), "Food");
         adapter.addFragment(new TabFive(), "Recreational");

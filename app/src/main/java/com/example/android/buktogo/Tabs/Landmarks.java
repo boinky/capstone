@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.android.buktogo.Adapters.TabOneAdapter;
+import com.example.android.buktogo.Adapters.LandmarksAdapter;
 import com.example.android.buktogo.Data;
 import com.example.android.buktogo.R;
 
@@ -18,9 +18,9 @@ import java.util.List;
 /**
  * Created by jan on 12/23/15.
  */
-public class TabTwo extends Fragment {
+public class Landmarks extends Fragment {
     RecyclerView recyclerView;
-    TabOneAdapter adapter;
+    LandmarksAdapter adapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -44,7 +44,7 @@ public class TabTwo extends Fragment {
         setHasOptionsMenu(true);
 
         List<Data> data = placeData();
-        adapter = new TabOneAdapter(getActivity(), data);
+        adapter = new LandmarksAdapter(getActivity(), data);
         recyclerView.setAdapter(adapter);
     }
 

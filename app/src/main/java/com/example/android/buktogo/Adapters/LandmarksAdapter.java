@@ -17,18 +17,18 @@ import java.util.List;
 /**
  * Created by jan on 12/30/15.
  */
-public class TabOneAdapter  extends RecyclerView.Adapter<TabOneAdapter.View_Holder> {
+public class LandmarksAdapter extends RecyclerView.Adapter<LandmarksAdapter.View_Holder> {
     List<Data> mData = Collections.emptyList();
     Context context;
 
-    public TabOneAdapter(Context context, List<Data> list) {
+    public LandmarksAdapter(Context context, List<Data> list) {
         this.mData = list;
         this.context = context;
     }
 
     @Override
     public View_Holder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.tab_two, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.Landmarks, parent, false);
         View_Holder holder = new View_Holder(v);
         return holder;
     }
