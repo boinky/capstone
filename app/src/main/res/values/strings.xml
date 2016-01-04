@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">BuktoGo</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_display_result">DisplayResult</string>
+    <string name="action_search">Search</string>
+    <string name="title_activity_onboard">onboard</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <string name="app_intro">IntroApp</string>
+    <string name="skip">Y U DO DIS TO ME?</string>
+</resources>

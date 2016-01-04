@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:apk="http://schemas.android.com/apk/res-auto">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/home"
+            android:icon="@drawable/home"
+            android:title="Home" />
+        <item
+            android:id="@+id/municipality"
+            android:icon="@drawable/hall"
+            android:title="Municipality" />
+
+    </group>
+
+    <item android:title="Map">
+        <menu>
+            <item
+                android:id="@+id/mapswithme"
+                android:icon="@drawable/map"
+                android:title="Maps.me" />
+        </menu>
+    </item>
+
+    <item android:title="About">
+        <menu>
+            <item
+                android:id="@+id/about"
+                android:icon="@android:drawable/ic_menu_report_image"
+                android:title="About.BuktoGo" />
+        </menu>
+    </item>
+</menu>
+
+

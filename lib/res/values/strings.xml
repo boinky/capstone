@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string  name="mwm_should_be_installed">Offline maps are required to proceed. We have partnered with MAPS.ME to provide you with offline map of Bukidnon.\nTo continue please download the app and download Philippines:</string>
+    <string  name="down_pro">Download MAPS.ME</string>
+    <string  name="url_pro">http://maps.me/get</string>
+</resources>
