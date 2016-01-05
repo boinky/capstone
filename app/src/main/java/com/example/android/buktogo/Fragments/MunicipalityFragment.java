@@ -29,7 +29,6 @@ public class MunicipalityFragment extends Fragment implements SearchView.OnQuery
     Recycler_View_Adapter adapter;
     private List<Data> mData;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.recycler_view, container, false);
