@@ -11,9 +11,9 @@ import android.util.Log;
 import com.example.android.buktogo.Adapters.ViewPagerAdapter;
 import com.example.android.buktogo.Tabs.Accomodation;
 import com.example.android.buktogo.Tabs.Food;
-import com.example.android.buktogo.Tabs.TabFive;
-import com.example.android.buktogo.Tabs.TabOne;
-import com.example.android.buktogo.Tabs.TabThree;
+import com.example.android.buktogo.Tabs.Recreational;
+import com.example.android.buktogo.Tabs.About;
+import com.example.android.buktogo.Tabs.Landmarks;
 
 /**
  * Created by jan on 12/24/15.
@@ -58,11 +58,11 @@ public class Tab extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new TabOne(), "About");
-        adapter.addFragment(new TabThree(), "Landmarks");
+        adapter.addFragment(new About(), "About");
+        adapter.addFragment(new Landmarks(), "Landmarks");
         adapter.addFragment(new Accomodation(), "Accomodation");
         adapter.addFragment(new Food(), "Food");
-        adapter.addFragment(new TabFive(), "Recreational");
+        adapter.addFragment(new Recreational(), "Recreational");
         viewPager.setAdapter(adapter);
     }
 

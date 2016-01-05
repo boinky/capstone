@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity
         final String title = cities.length == 1 ? cities[0].getName() : "Points in Bukidnon";
         MapsWithMeApi.showPointsOnMap(this, title, points);
     }
-//
+
 //    @Override
 //    public boolean onOptionsItemSelected(MenuItem item) {
 //        switch (item.getItemId()) {
