@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,6 +43,14 @@ public class AccomodationAdapter extends RecyclerView.Adapter<AccomodationAdapte
 //        holder.contact.setText(itemData.getContact());
         holder.image.setImageResource(itemData.getImageId());
 
+
+        holder.locate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "lat: " + itemData.getLat() + " lon:" + itemData.getLon(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
         holder.title.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,6 +76,7 @@ public class AccomodationAdapter extends RecyclerView.Adapter<AccomodationAdapte
         TextView address;
         TextView contact;
         ImageView image;
+        Button locate;
 
         View_Holder(View itemView) {
             super(itemView);
@@ -75,6 +85,7 @@ public class AccomodationAdapter extends RecyclerView.Adapter<AccomodationAdapte
             address = (TextView) itemView.findViewById(R.id.cardView_address);
 //            contact = (TextView) itemView.findViewById(R.id.cardView_contact);
             image = (ImageView) itemView.findViewById(R.id.cardView_image);
+            locate = (Button) itemView.findViewById(R.id.locate);
         }
     }
 }
