@@ -9,11 +9,11 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import com.example.android.buktogo.Adapters.ViewPagerAdapter;
+import com.example.android.buktogo.Tabs.Accomodation;
+import com.example.android.buktogo.Tabs.Food;
 import com.example.android.buktogo.Tabs.TabFive;
-import com.example.android.buktogo.Tabs.TabFour;
 import com.example.android.buktogo.Tabs.TabOne;
 import com.example.android.buktogo.Tabs.TabThree;
-import com.example.android.buktogo.Tabs.Landmarks;
 
 /**
  * Created by jan on 12/24/15.
@@ -47,12 +47,8 @@ public class Tab extends AppCompatActivity {
 
 
         data = (Data)getIntent().getExtras().getSerializable("DATA");
-//        Bundle bundle = new Bundle();
-//        bundle.putString("key", data.getTitle());
-//        TabOne tabOne = new TabOne();
-//        tabOne.setArguments(bundle);
-        Log.e("Value - ", data.getTitle());
-        getData = data.getTitle();
+        Log.e("Value - ", data.getId());
+        getData = data.getId();
 
     }
 
@@ -63,9 +59,9 @@ public class Tab extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new TabOne(), "About");
-        adapter.addFragment(new Landmarks(), "Landmarks");
-        adapter.addFragment(new TabThree(), "Accomodation");
-        adapter.addFragment(new TabFour(), "Food");
+        adapter.addFragment(new TabThree(), "Landmarks");
+        adapter.addFragment(new Accomodation(), "Accomodation");
+        adapter.addFragment(new Food(), "Food");
         adapter.addFragment(new TabFive(), "Recreational");
         viewPager.setAdapter(adapter);
     }

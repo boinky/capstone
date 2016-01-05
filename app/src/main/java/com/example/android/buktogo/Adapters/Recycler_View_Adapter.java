@@ -46,9 +46,9 @@ public class Recycler_View_Adapter extends RecyclerView.Adapter<Recycler_View_Ad
     public void onBindViewHolder(View_Holder holder, final int position) {
         //Use the provided View Holder on the onCreateViewHolder method to populate the current row on the RecyclerView
         final Data itemData = mData.get(position);
-        holder.title.setText(mData.get(position).title);
-        holder.description.setText(mData.get(position).description);
-        holder.imageView.setImageResource(mData.get(position).imageId);
+        holder.title.setText(itemData.getTitle());
+        holder.description.setText(itemData.getDescription());
+        holder.imageView.setImageResource(itemData.getImageId());
 
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
