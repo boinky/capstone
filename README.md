@@ -1,3 +1,3 @@
 # capstone
-Casptone Project
+Capstone Project
 
