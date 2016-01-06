@@ -24,51 +24,35 @@ import com.mapswithme.maps.api.MapsWithMeApi;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-
+    FragmentManager FM = getSupportFragmentManager();
+    FragmentTransaction FT = FM.beginTransaction();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        //  Declare a new thread to do a preference check
         Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
-                //  Initialize SharedPreferences
                 SharedPreferences getPrefs = PreferenceManager
                         .getDefaultSharedPreferences(getBaseContext());
-
-                //  Create a new boolean and preference and set it to true
                 boolean isFirstStart = getPrefs.getBoolean("firstStart", true);
-
-                //  If the activity has never started before...
                 if (isFirstStart) {
-
-                    //  Launch app intro
                     Intent i = new Intent(MainActivity.this, IntroApp.class);
                     startActivity(i);
-
-                    //  Make a new preferences editor
                     SharedPreferences.Editor e = getPrefs.edit();
-
-                    //  Edit preference to make it false because we don't want this to run again
                     e.putBoolean("firstStart", false);
-
-                    //  Apply changes
                     e.apply();
                 }
             }
         });
-
-        // Start the thread
+        // If app first run on device, run this thread else ignore
         t.start();
 
-        FragmentManager FM = getSupportFragmentManager();
-        FragmentTransaction FT = FM.beginTransaction();
-
+        // inflating main layout
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        // f
         FT.replace(R.id.frame_layout, new HomeFragment());
         FT.commit();
 
@@ -97,26 +81,27 @@ public class MainActivity extends AppCompatActivity
     }
 
 
+//    Side Menu Items
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
+
         FragmentManager FM = getSupportFragmentManager();
         FragmentTransaction FT = FM.beginTransaction();
-//        Fragment newFragment = null;
 
         if (id == R.id.home) {
-           // for home fragment
+            // if clicked go to home fragment
             FT.replace(R.id.frame_layout, new HomeFragment());
             FT.commit();
         } else if (id == R.id.municipality) {
+            // if clicked go to municipality fragment
             FT.replace(R.id.frame_layout, new MunicipalityFragment());
             FT.commit();
         } else if (id == R.id.mapswithme) {
+            // pass points of bukidnon to maps.me
             showCityOnMWMMap(MwmDataItem.ITEMS);
         }
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -131,7 +116,7 @@ public class MainActivity extends AppCompatActivity
         final String title = cities.length == 1 ? cities[0].getName() : "Points in Bukidnon";
         MapsWithMeApi.showPointsOnMap(this, title, points);
     }
-//
+
 //    @Override
 //    public boolean onOptionsItemSelected(MenuItem item) {
 //        switch (item.getItemId()) {

@@ -13,7 +13,7 @@ import com.example.android.buktogo.Tab;
 /**
  * Created by jan on 12/23/15.
  */
-public class TabThree extends Fragment {
+public class Landmarks extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

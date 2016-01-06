@@ -5,6 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,18 +19,18 @@ import java.util.List;
 /**
  * Created by jan on 12/30/15.
  */
-public class TabOneAdapter  extends RecyclerView.Adapter<TabOneAdapter.View_Holder> {
+public class AccomodationAdapter extends RecyclerView.Adapter<AccomodationAdapter.View_Holder> {
     List<Data> mData = Collections.emptyList();
     Context context;
 
-    public TabOneAdapter(Context context, List<Data> list) {
+    public AccomodationAdapter(Context context, List<Data> list) {
         this.mData = list;
         this.context = context;
     }
 
     @Override
     public View_Holder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.tab_two, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.accomodation, parent, false);
         View_Holder holder = new View_Holder(v);
         return holder;
     }
@@ -36,7 +38,18 @@ public class TabOneAdapter  extends RecyclerView.Adapter<TabOneAdapter.View_Hold
     @Override
     public void onBindViewHolder(View_Holder holder, final int position) {
         final Data itemData = mData.get(position);
-        holder.title.setText(mData.get(position).title);
+        holder.title.setText(itemData.getTitle());
+        holder.address.setText(itemData.getAddress());
+//        holder.contact.setText(itemData.getContact());
+        holder.image.setImageResource(itemData.getImageId());
+
+
+        holder.locate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "lat: " + itemData.getLat() + " lon:" + itemData.getLon(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
         holder.title.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,12 +73,19 @@ public class TabOneAdapter  extends RecyclerView.Adapter<TabOneAdapter.View_Hold
     public class View_Holder extends RecyclerView.ViewHolder {
         View view;
         TextView title;
+        TextView address;
+        TextView contact;
+        ImageView image;
+        Button locate;
 
         View_Holder(View itemView) {
             super(itemView);
             view = itemView.findViewById(R.id.tabOne);
             title = (TextView) itemView.findViewById(R.id.cardView_title);
-
+            address = (TextView) itemView.findViewById(R.id.cardView_address);
+//            contact = (TextView) itemView.findViewById(R.id.cardView_contact);
+            image = (ImageView) itemView.findViewById(R.id.cardView_image);
+            locate = (Button) itemView.findViewById(R.id.locate);
         }
     }
 }
